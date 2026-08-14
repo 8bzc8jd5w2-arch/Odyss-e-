@@ -1,57 +1,53 @@
-# L’Odyssée
+# Deux jeux, un même moteur maison
 
-Jeu d’aventure textuel à choix, en français, inspiré de l’*Odyssée* d’Homère et
-de son adaptation au cinéma sortie cet été.
+Deux jeux web en français, sans dépendance, sans build, sans réseau : on ouvre
+le fichier `index.html` dans un navigateur et on joue. Chacun sépare ses données
+(le récit, les questions) de son moteur, pour qu'on puisse en ajouter sans
+toucher au code.
+
+| Jeu | Ouvrir | Quoi |
+|---|---|---|
+| **L'Odyssée** | `index.html` | Aventure textuelle à choix, 79 scènes, 9 fins |
+| **Iqra'** | `coran/index.html` | Quiz sur le Coran pour les 10–16 ans, 125 questions |
+
+```bash
+node outils/verifier.js        # cohérence du récit de L'Odyssée
+node outils/verifier-coran.js  # cohérence de la banque de questions
+node outils/construire.js tout # dist/odyssee.html et dist/iqra.html, autonomes
+```
+
+---
+
+# L'Odyssée
+
+Jeu d'aventure textuel à choix, inspiré de l'*Odyssée* d'Homère et de son
+adaptation au cinéma sortie cet été.
 
 Vous êtes Ulysse, la nuit où Troie tombe. Ithaque est à dix jours de mer.
 Ce sera dix ans.
 
-**Jouer :** ouvrez `index.html` dans un navigateur. Rien à installer, aucune
-dépendance, aucun réseau. La partie se sauvegarde toute seule dans le navigateur.
-
----
-
-## Ce qui fait le jeu
-
-**Trois valeurs, et elles s’opposent.** La *Vigueur* ouvre les portes par la
+**Trois valeurs, et elles s'opposent.** La *Vigueur* ouvre les portes par la
 force, la *Ruse* les contourne, la *Faveur des dieux* décide de tout le reste —
 elle monte quand vous respectez les suppliants, les morts et les serments, elle
-s’effondre quand vous pillez un temple ou criez votre nom à un Cyclope aveuglé.
+s'effondre quand vous pillez un temple ou criez votre nom à un Cyclope aveuglé.
 Une faveur basse retire 1 à chaque jet de dé et vous ferme les fins heureuses.
 
 **Un équipage qui se compte.** Vous partez de Troie avec 608 hommes. Chaque
 escale en prend. Le chiffre affiché à gauche est la seule chose que le jeu ne
-vous pardonne jamais de perdre, et il n’y a aucun moyen de le faire remonter.
+vous pardonne jamais de perdre, et il n'y a aucun moyen de le faire remonter.
 
 **Des jets de dés, pas des devinettes.** Un choix marqué `jet de ruse` ou
 `jet de vigueur` se résout en d6 + statistique (± faveur) contre un seuil affiché
-après coup. L’échec ne tue presque jamais : il coûte des hommes, des jours, ou
+après coup. L'échec ne tue presque jamais : il coûte des hommes, des jours, ou
 une option future.
 
 **Les conséquences voyagent.** Crier son nom à Polyphème arme Poséidon pour le
-reste de la partie. Écouter Circé jusqu’au bout est la seule façon de connaître
+reste de la partie. Écouter Circé jusqu'au bout est la seule façon de connaître
 la cire des Sirènes et le bon côté du détroit. Épargner les bœufs du Soleil
 ouvre une branche entière — rentrer à Ithaque *avec* son équipage — qui change
-l’issue du massacre final.
+l'issue du massacre final.
 
-**79 scènes, 9 fins.** De la fin lumineuse (la rame plantée en terre, très loin
-de la mer) à celles qu’on ne raconte jamais : le lotus, le figuier de Charybde,
-l’immortalité chez Calypso.
-
-## Structure
-
-```
-index.html            page de jeu (ouvrir celle-ci)
-src/histoire.js       le récit : scènes, choix, effets, conditions
-src/moteur.js         moteur : état, jets de dés, rendu, sauvegarde
-src/style.css         thème parchemin / nuit égéenne (clair et sombre)
-outils/verifier.js    vérifie le graphe narratif
-outils/construire.js  assemble tout en un fichier unique dans dist/
-```
-
-## Ajouter une scène
-
-Le récit est une simple table d’objets. Une scène :
+### Ajouter une scène
 
 ```js
 sirenes: {
@@ -81,21 +77,80 @@ sirenes: {
 
 Effets disponibles : `vigueur`, `ruse`, `faveur`, `equipage`, `jours` (nombres
 relatifs), `objets` / `retire` (tableaux), `drapeaux` (objet fusionné dans
-l’état), `note` (ligne ajoutée au journal de bord).
+l'état), `note` (ligne ajoutée au journal de bord). Une fin remplace `choix` par
+`fin: 'lumineuse' | 'sombre' | 'ambigue' | 'douce'`.
 
-Une fin remplace `choix` par `fin: 'lumineuse' | 'sombre' | 'ambigue' | 'douce'`.
+`outils/verifier.js` évalue chaque `txt()`, `entree()` et `cible_conditionnelle()`
+sous plusieurs états extrêmes, et refuse une scène orpheline ou une destination
+inexistante. À lancer après toute modification du récit.
 
-## Vérifier et construire
+---
 
-```bash
-node outils/verifier.js     # destinations valides, scènes atteignables, textes qui s’évaluent
-node outils/construire.js   # dist/odyssee.html — un seul fichier, ~90 ko
+# Iqra'
+
+Quiz sur le Coran pour les 10 à 16 ans. *Iqra'* — « Lis ! » — est le premier mot
+révélé.
+
+**Trois niveaux, six thèmes.** Découverte (10–12 ans), Explorateur (12–14),
+Connaisseur (14–16) ; Le Livre, Les prophètes, Les récits, Les sourates, Les mots,
+La pratique. On peut filtrer par thème ou tout mélanger. Une partie fait dix
+questions, tirées au hasard, réponses mélangées à chaque fois.
+
+**On apprend en se trompant.** Chaque réponse déclenche une explication — pas
+seulement « faux », mais le verset, le nom, le chiffre exact. L'écran final
+reprend les dix questions avec la bonne réponse et son explication, à relire
+tranquillement.
+
+**Une série qui récompense la régularité.** 10 points par bonne réponse, plus un
+bonus qui monte avec la série en cours (jusqu'à +10). Six médailles jalonnent le
+parcours, du premier « Premier pas » aux « Cent réponses », conservées d'une
+session à l'autre.
+
+**Contenu.** Les questions s'en tiennent à ce qui fait consensus et se vérifie :
+structure du Coran (114 sourates, 30 juz', la plus longue, la plus courte),
+histoire de la révélation, prophètes et récits coraniques, sens des noms de
+sourates, vocabulaire (mushaf, tafsir, tajwid, qira'at, ۞ et ۩), et ce que le
+Coran demande au quotidien — les parents, l'orphelin, la vérification d'une
+nouvelle avant de la répandre. Les questions de divergence entre écoles juridiques
+et les décomptes discutés ont été volontairement écartés.
+
+### Ajouter une question
+
+```js
+{ n: 2,                    // niveau : 1, 2 ou 3
+  t: 'sourates',           // thème : livre | prophetes | recits | sourates | mots | pratique
+  q: 'Que veut dire « Al-Kahf » ?',
+  r: ['La Caverne', 'La Montagne', 'Le Refuge', 'La Nuit'],
+  b: 0,                    // index de la bonne réponse (les propositions sont mélangées au tirage)
+  info: 'Elle doit son nom aux jeunes gens qui s’y réfugièrent pour protéger leur foi.' }
 ```
 
-`verifier.js` évalue chaque `txt()`, `entree()` et `cible_conditionnelle()` sous
-plusieurs états extrêmes, et refuse une scène orpheline ou une destination qui
-n’existe pas. À lancer après toute modification du récit.
+`outils/verifier-coran.js` vérifie que chaque question a quatre réponses
+distinctes, une bonne réponse valide, un niveau et un thème connus, une
+explication non vide, et qu'aucune question n'est posée deux fois. Il affiche
+aussi la répartition par niveau et par thème, pour repérer les cases trop
+maigres.
 
-## Commandes clavier
+---
 
-`1`–`9` choisissent une option · `Échap` referme le carnet sur mobile.
+## Structure
+
+```
+index.html               L'Odyssée — page de jeu
+src/histoire.js          le récit : scènes, choix, effets, conditions
+src/moteur.js            état, jets de dés, rendu, sauvegarde
+src/style.css            thème parchemin / nuit égéenne
+
+coran/index.html         Iqra' — page de jeu
+coran/src/questions.js   la banque de questions
+coran/src/moteur.js      tirage, score, séries, médailles, progrès
+coran/src/style.css      thème manuscrit : ivoire, lapis et or
+
+outils/verifier.js       contrôle du graphe narratif
+outils/verifier-coran.js contrôle de la banque de questions
+outils/construire.js     assemblage en fichiers HTML autonomes
+```
+
+Les deux jeux se sauvegardent tout seuls dans le navigateur, s'adaptent au thème
+clair ou sombre du système, se jouent au clavier (`1`–`9` dans L'Odyssée,
+`1`–`4` puis `Entrée` dans Iqra') et respectent `prefers-reduced-motion`.
