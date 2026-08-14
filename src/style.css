@@ -18,6 +18,7 @@
   --vig:         #a3502a;
   --rus:         #1d5f6e;
   --fav:         #a7791d;
+  --frise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12'%3E%3Cpath d='M0 11H16M13 11V1M13 1H3M3 1V7M3 7H9M9 7V5M9 5H5' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -68,8 +69,7 @@ body {
   min-height: 100vh;
   background-color: var(--fond);
   background-image:
-    repeating-linear-gradient(90deg, transparent 0 38px, var(--fond-motif) 38px 40px),
-    repeating-linear-gradient(0deg, transparent 0 38px, var(--fond-motif) 38px 40px);
+    repeating-linear-gradient(0deg, transparent 0 3px, var(--fond-motif) 3px 4px);
   background-attachment: fixed;
   color: var(--encre);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
@@ -97,9 +97,19 @@ body {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  border-bottom: 2px solid var(--trait);
   padding-bottom: 12px;
   margin-bottom: 4px;
+}
+
+/* frise à la grecque : motif tuilé, teinté par un masque pour suivre le thème */
+.meandre {
+  grid-column: 1 / -1;
+  height: 20px;
+  margin: -6px 0 2px;
+  background-color: var(--bronze);
+  opacity: .5;
+  -webkit-mask: var(--frise) repeat-x left center / auto 20px;
+  mask: var(--frise) repeat-x left center / auto 20px;
 }
 
 .entete h1 {
@@ -254,6 +264,7 @@ body {
   font-size: clamp(1.35rem, 3vw, 1.85rem);
   font-weight: 600;
   line-height: 1.22;
+  text-wrap: balance;
   color: var(--encre);
 }
 
@@ -408,4 +419,18 @@ body {
   body.panneau-ouvert .flanc { transform: none; }
   #btn-panneau { display: inline-block; }
   #journal { max-height: none; }
+}
+
+/* ————— accessibilité ————— */
+
+:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 2px;
+}
+.choix:focus-visible { border-color: var(--bronze); border-left-color: var(--bronze); }
+
+@media (prefers-reduced-motion: reduce) {
+  .scene.entree, .reprise { animation: none; }
+  .choix { transition: none; }
+  .choix:hover:not([disabled]) { transform: none; }
 }
