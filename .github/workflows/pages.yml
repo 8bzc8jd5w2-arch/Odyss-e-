@@ -1,8 +1,9 @@
 name: Publier le site
 
+# Déclenchement manuel uniquement : ce workflow n'est utile que si la source
+# de Pages est réglée sur « GitHub Actions ». Il ne s'exécute donc plus tout
+# seul, pour ne pas envoyer d'e-mails d'échec à chaque poussée.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -24,8 +25,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Activer et configurer Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - name: Empaqueter le dépôt tel quel
         uses: actions/upload-pages-artifact@v3
         with:
