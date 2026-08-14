@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Affiche à imprimer — les deux jeux</title>
+<!-- Les adresses ne répondront qu'une fois GitHub Pages activé sur le dépôt
+     (Settings → Pages → branche main, dossier /). -->
+<style>
+/* Feuille destinée au papier et au vidéoprojecteur : fond blanc assumé,
+   pour que l'encre et le contraste soient prévisibles à l'impression. */
+@page { size: A4 portrait; margin: 14mm; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 34px 24px 44px;
+  background: #ffffff;
+  color: #1b1a16;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.feuille { max-width: 760px; margin: 0 auto; text-align: center; }
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 30px;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.sous { margin: 0 0 26px; color: #6b6558; font-style: italic; font-size: 15px; }
+
+.principal {
+  display: inline-block;
+  padding: 18px 18px 12px;
+  border: 1px solid #d8cfba;
+  border-radius: 4px;
+}
+.principal img { display: block; width: 240px; height: 240px; }
+.principal .url {
+  margin: 12px 0 0;
+  font-size: 13px;
+  letter-spacing: .01em;
+  word-break: break-all;
+  color: #4a463c;
+}
+
+.jeux {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid #ddd4c0;
+}
+
+.jeu img { display: block; width: 150px; height: 150px; margin: 0 auto 10px; }
+.jeu h2 { margin: 0; font-size: 18px; font-weight: 600; }
+.jeu .quoi { margin: 3px 0 8px; font-size: 13px; color: #6b6558; }
+.jeu .url { margin: 0; font-size: 11px; color: #7a7466; word-break: break-all; }
+
+.mode-emploi {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd4c0;
+  font-size: 13px;
+  color: #6b6558;
+  text-align: left;
+}
+.mode-emploi p { margin: 0 0 6px; }
+.mode-emploi b { color: #1b1a16; font-weight: 600; }
+
+@media (max-width: 560px) {
+  .jeux { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="feuille">
+
+  <h1>Deux jeux à jouer dans le navigateur</h1>
+  <p class="sous">Scannez avec l’appareil photo du téléphone. Rien à installer, aucun compte à créer.</p>
+
+  <div class="principal">
+    <img src="qr-accueil.svg" alt="QR code vers la page qui présente les deux jeux">
+    <p class="url">8bzc8jd5w2-arch.github.io/Odyss-e-</p>
+  </div>
+
+  <div class="jeux">
+    <div class="jeu">
+      <img src="qr-iqra.svg" alt="QR code vers le quiz Iqra’">
+      <h2>Iqra’</h2>
+      <p class="quoi">Quiz sur le Coran · 10 à 16 ans<br>125 questions, 3 niveaux</p>
+      <p class="url">…/Odyss-e-/coran/</p>
+    </div>
+    <div class="jeu">
+      <img src="qr-odyssee.svg" alt="QR code vers le jeu L’Odyssée">
+      <h2>L’Odyssée</h2>
+      <p class="quoi">Aventure à choix · dès 12 ans<br>79 scènes, 9 fins</p>
+      <p class="url">…/Odyss-e-/odyssee/</p>
+    </div>
+  </div>
+
+  <div class="mode-emploi">
+    <p><b>Sur une tablette partagée :</b> la progression est enregistrée dans le navigateur, donc commune à tous ceux qui l’utilisent. Le bouton « Effacer mon parcours » remet le compteur à zéro entre deux joueurs.</p>
+    <p><b>Sans connexion :</b> les deux jeux existent aussi en fichier unique, à copier sur les postes. Ils s’ouvrent alors sans réseau.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

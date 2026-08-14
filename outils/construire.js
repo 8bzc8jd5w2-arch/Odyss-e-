@@ -13,8 +13,8 @@ const path = require('path');
 const racine = path.join(__dirname, '..');
 
 const JEUX = {
-  odyssee: { source: '.',     sortie: 'odyssee' },
-  coran:   { source: 'coran', sortie: 'iqra' }
+  odyssee: { source: 'odyssee', sortie: 'odyssee' },
+  coran:   { source: 'coran',   sortie: 'iqra' }
 };
 
 function construire(cle) {

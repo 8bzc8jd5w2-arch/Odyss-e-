@@ -7,7 +7,8 @@ toucher au code.
 
 | Jeu | Ouvrir | Quoi |
 |---|---|---|
-| **L'Odyssée** | `index.html` | Aventure textuelle à choix, 79 scènes, 9 fins |
+| — | `index.html` | Page d'accueil qui présente les deux jeux |
+| **L'Odyssée** | `odyssee/index.html` | Aventure textuelle à choix, 79 scènes, 9 fins |
 | **Iqra'** | `coran/index.html` | Quiz sur le Coran pour les 10–16 ans, 125 questions |
 
 ```bash
@@ -136,10 +137,12 @@ maigres.
 ## Structure
 
 ```
-index.html               L'Odyssée — page de jeu
-src/histoire.js          le récit : scènes, choix, effets, conditions
-src/moteur.js            état, jets de dés, rendu, sauvegarde
-src/style.css            thème parchemin / nuit égéenne
+index.html               page d'accueil : les deux jeux
+
+odyssee/index.html       L'Odyssée — page de jeu
+odyssee/src/histoire.js  le récit : scènes, choix, effets, conditions
+odyssee/src/moteur.js    état, jets de dés, rendu, sauvegarde
+odyssee/src/style.css    thème parchemin / nuit égéenne
 
 coran/index.html         Iqra' — page de jeu
 coran/src/questions.js   la banque de questions
@@ -149,7 +152,39 @@ coran/src/style.css      thème manuscrit : ivoire, lapis et or
 outils/verifier.js       contrôle du graphe narratif
 outils/verifier-coran.js contrôle de la banque de questions
 outils/construire.js     assemblage en fichiers HTML autonomes
+
+partage/affiche.html     affiche A4 à imprimer, avec les QR codes
+partage/qr-*.svg / .png  QR codes vers l'accueil et vers chaque jeu
 ```
+
+---
+
+## Mettre les jeux en ligne
+
+Les deux jeux sont des fichiers statiques : n'importe quel hébergement suffit.
+Le plus direct est **GitHub Pages**, à activer dans *Settings → Pages* du dépôt
+(source : branche `main`, dossier `/`). Les adresses deviennent alors :
+
+```
+https://8bzc8jd5w2-arch.github.io/Odyss-e-/           les deux jeux
+https://8bzc8jd5w2-arch.github.io/Odyss-e-/odyssee/   L'Odyssée
+https://8bzc8jd5w2-arch.github.io/Odyss-e-/coran/     Iqra'
+```
+
+Ce sont ces trois adresses que contiennent les QR codes de `partage/`, vérifiés
+en les relisant après génération. Ils ne mèneront nulle part tant que Pages
+n'est pas activé ; ils fonctionneront sans qu'il faille les regénérer une fois
+que ce sera fait.
+
+**Sans réseau**, `node outils/construire.js tout` produit `dist/odyssee.html` et
+`dist/iqra.html` : un fichier chacun, tout compris, à copier sur les postes ou à
+envoyer en pièce jointe.
+
+**À savoir avant de diffuser :** la progression (parties, médailles, sauvegarde
+de l'aventure) vit dans le navigateur de l'appareil, pas sur un serveur. Sur une
+tablette partagée, tout le monde alimente le même compteur ; chaque jeu a un
+bouton pour repartir de zéro. En navigation privée, rien n'est conservé et les
+jeux fonctionnent quand même.
 
 Les deux jeux se sauvegardent tout seuls dans le navigateur, s'adaptent au thème
 clair ou sombre du système, se jouent au clavier (`1`–`9` dans L'Odyssée,

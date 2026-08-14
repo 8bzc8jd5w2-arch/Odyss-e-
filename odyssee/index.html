@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L’Odyssée</title>
+<meta name="description" content="Jeu d’aventure textuel inspiré de L’Odyssée : vingt ans de mer, 79 scènes, neuf fins.">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<div class="cadre">
+
+  <header class="entete">
+    <div>
+      <h1>L’Odyssée</h1>
+      <p class="sous">Vingt ans de mer, une seule maison. Chaque choix coûte quelque chose.</p>
+    </div>
+    <div class="outils">
+      <button id="btn-panneau" type="button">Carnet</button>
+      <button id="btn-recommencer" type="button">Recommencer</button>
+    </div>
+  </header>
+
+  <div class="meandre" aria-hidden="true"></div>
+
+  <aside class="flanc">
+    <section class="bloc">
+      <h3>L’homme</h3>
+      <div id="stats"></div>
+    </section>
+    <section class="bloc">
+      <h3>Ce que tu portes</h3>
+      <ul id="objets"></ul>
+    </section>
+    <section class="bloc">
+      <h3>Journal de bord</h3>
+      <ul id="journal"></ul>
+    </section>
+  </aside>
+
+  <main class="scene entree" id="scene"></main>
+
+  <p class="aide">Touches 1–9 pour choisir · la partie se sauvegarde toute seule</p>
+
+</div>
+
+<script src="src/histoire.js"></script>
+<script src="src/moteur.js"></script>
+</body>
+</html>

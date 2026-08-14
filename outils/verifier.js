@@ -12,7 +12,7 @@ const racine = path.join(__dirname, '..');
 const sandbox = { window: {}, console };
 sandbox.window.window = sandbox.window;
 vm.createContext(sandbox);
-vm.runInContext(fs.readFileSync(path.join(racine, 'src/histoire.js'), 'utf8'), sandbox, { filename: 'histoire.js' });
+vm.runInContext(fs.readFileSync(path.join(racine, 'odyssee/src/histoire.js'), 'utf8'), sandbox, { filename: 'histoire.js' });
 
 const H = sandbox.window.HISTOIRE;
 const DEBUT = sandbox.window.DEBUT;
