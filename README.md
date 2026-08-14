@@ -1,4 +1,4 @@
-# L’Odyssée — Le Retour
+# L’Odyssée
 
 Jeu d’aventure textuel à choix, en français, inspiré de l’*Odyssée* d’Homère et
 de son adaptation au cinéma sortie cet été.
