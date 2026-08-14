@@ -1,0 +1,411 @@
+/* L'Odyssée — feuille de style */
+
+:root {
+  /* Clair : parchemin, encre brune, bronze */
+  --fond:        #efe6d5;
+  --fond-motif:  #e9dfcb;
+  --papier:      #f7f1e4;
+  --papier-2:    #efe5d1;
+  --encre:       #2e2418;
+  --encre-doux:  #6b5b45;
+  --trait:       #cdbc9d;
+  --bronze:      #96631f;
+  --bronze-clair:#b98431;
+  --mer:         #1d5f6e;
+  --pourpre:     #8a2b34;
+  --or:          #a7791d;
+  --ombre:       rgba(60, 42, 20, .16);
+  --vig:         #a3502a;
+  --rus:         #1d5f6e;
+  --fav:         #a7791d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Sombre : nuit égéenne */
+    --fond:        #0c1418;
+    --fond-motif:  #0f181d;
+    --papier:      #121e24;
+    --papier-2:    #17262d;
+    --encre:       #e6ddc9;
+    --encre-doux:  #9aa9ac;
+    --trait:       #2a3d45;
+    --bronze:      #d3a355;
+    --bronze-clair:#e6bd76;
+    --mer:         #63c1cf;
+    --pourpre:     #d9707a;
+    --or:          #e0b45c;
+    --ombre:       rgba(0, 0, 0, .45);
+    --vig:         #e0855c;
+    --rus:         #63c1cf;
+    --fav:         #e0b45c;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fond:        #0c1418;
+  --fond-motif:  #0f181d;
+  --papier:      #121e24;
+  --papier-2:    #17262d;
+  --encre:       #e6ddc9;
+  --encre-doux:  #9aa9ac;
+  --trait:       #2a3d45;
+  --bronze:      #d3a355;
+  --bronze-clair:#e6bd76;
+  --mer:         #63c1cf;
+  --pourpre:     #d9707a;
+  --or:          #e0b45c;
+  --ombre:       rgba(0, 0, 0, .45);
+  --vig:         #e0855c;
+  --rus:         #63c1cf;
+  --fav:         #e0b45c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--fond);
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 38px, var(--fond-motif) 38px 40px),
+    repeating-linear-gradient(0deg, transparent 0 38px, var(--fond-motif) 38px 40px);
+  background-attachment: fixed;
+  color: var(--encre);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ————— ossature ————— */
+
+.cadre {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px 20px 64px;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.entete {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--trait);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.entete h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--bronze);
+}
+
+.entete .sous {
+  margin: 0;
+  color: var(--encre-doux);
+  font-style: italic;
+  font-size: .93rem;
+}
+
+.outils { display: flex; gap: 8px; }
+
+.outils button {
+  font: inherit;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 7px 13px;
+  color: var(--encre-doux);
+  background: transparent;
+  border: 1px solid var(--trait);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: .18s;
+}
+.outils button:hover { color: var(--bronze); border-color: var(--bronze); }
+
+/* ————— colonne latérale ————— */
+
+.flanc {
+  position: sticky;
+  top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bloc {
+  background: var(--papier);
+  border: 1px solid var(--trait);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 var(--ombre);
+  padding: 16px 17px;
+}
+
+.bloc h3 {
+  margin: 0 0 12px;
+  font-size: .72rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--encre-doux);
+  font-weight: 600;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 74px 1fr auto;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 9px;
+}
+.stat.ligne { grid-template-columns: 1fr auto; }
+.stat .lab { font-size: .82rem; color: var(--encre-doux); }
+.stat .val { font-size: .84rem; font-variant-numeric: tabular-nums; color: var(--encre); min-width: 2ch; text-align: right; }
+.stat .val.gros { font-size: 1.02rem; color: var(--bronze); }
+
+.jauge { display: flex; gap: 2px; }
+.jauge i { display: block; height: 9px; flex: 1; border-radius: 1px; background: var(--trait); opacity: .55; }
+.jauge i.plein { opacity: 1; }
+.jauge i.plein.v { background: var(--vig); }
+.jauge i.plein.r { background: var(--rus); }
+.jauge i.plein.f { background: var(--fav); }
+
+.presage {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--trait);
+  font-style: italic;
+  font-size: .88rem;
+}
+.presage.bon { color: var(--mer); }
+.presage.neutre { color: var(--encre-doux); }
+.presage.mauvais { color: var(--pourpre); }
+
+#objets, #journal { list-style: none; margin: 0; padding: 0; }
+#objets li {
+  font-size: .87rem;
+  padding: 4px 0 4px 15px;
+  position: relative;
+}
+#objets li::before {
+  content: "◆";
+  position: absolute; left: 0; top: 4px;
+  color: var(--bronze); font-size: .6rem;
+}
+#objets li.rien, #journal li.rien { color: var(--encre-doux); font-style: italic; }
+#objets li.rien::before { content: ""; }
+
+#journal {
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: .84rem;
+}
+#journal li { padding: 3px 0; color: var(--encre-doux); border-bottom: 1px solid transparent; }
+#journal li.etape { color: var(--encre); }
+#journal .j {
+  display: inline-block;
+  min-width: 46px;
+  color: var(--bronze);
+  font-size: .72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ————— scène ————— */
+
+.scene {
+  background: var(--papier);
+  border: 1px solid var(--trait);
+  border-radius: 3px;
+  box-shadow: 0 2px 0 var(--ombre);
+  padding: clamp(22px, 3.6vw, 40px);
+  min-height: 60vh;
+}
+
+.scene.entree { animation: parait .45s ease both; }
+@keyframes parait { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+
+.scene-tete {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  font-size: .72rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--encre-doux);
+  border-bottom: 1px solid var(--trait);
+  padding-bottom: 9px;
+}
+.scene-tete .chap { color: var(--bronze); }
+
+.scene h2 {
+  margin: 20px 0 18px;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.22;
+  color: var(--encre);
+}
+
+.corps p { margin: 0 0 1.05em; max-width: 62ch; }
+.corps p:first-child::first-letter {
+  float: left;
+  font-size: 3.15em;
+  line-height: .82;
+  padding: .06em .1em 0 0;
+  color: var(--bronze);
+  font-weight: 600;
+}
+.corps em { color: var(--bronze); font-style: italic; }
+
+.jet {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 7px 13px;
+  font-size: .8rem;
+  letter-spacing: .04em;
+  border-left: 3px solid var(--trait);
+  background: var(--papier-2);
+  font-variant-numeric: tabular-nums;
+}
+.jet.ok { border-left-color: var(--mer); color: var(--mer); }
+.jet.ko { border-left-color: var(--pourpre); color: var(--pourpre); }
+
+/* ————— choix ————— */
+
+.choix-liste { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+.choix {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  text-align: left;
+  font: inherit;
+  font-size: .97rem;
+  line-height: 1.45;
+  color: var(--encre);
+  background: var(--papier-2);
+  border: 1px solid var(--trait);
+  border-left: 3px solid var(--trait);
+  border-radius: 2px;
+  padding: 13px 15px;
+  cursor: pointer;
+  transition: border-color .16s, transform .16s, background .16s;
+}
+.choix:hover:not([disabled]) {
+  border-color: var(--bronze);
+  border-left-color: var(--bronze);
+  transform: translateX(3px);
+}
+.choix[disabled] { opacity: .5; cursor: not-allowed; }
+
+.choix .num {
+  flex: none;
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border: 1px solid var(--trait);
+  border-radius: 50%;
+  font-size: .72rem;
+  color: var(--encre-doux);
+  margin-top: 1px;
+}
+.choix:hover:not([disabled]) .num { border-color: var(--bronze); color: var(--bronze); }
+.choix .txt { flex: 1; }
+
+.choix .dé {
+  display: inline-block;
+  margin-left: 9px;
+  padding: 1px 7px;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--encre-doux);
+  border: 1px solid var(--trait);
+  border-radius: 10px;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+.choix .raison {
+  display: block;
+  margin-top: 4px;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--encre-doux);
+}
+
+/* ————— fin ————— */
+
+.fin-bloc {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--trait);
+}
+.fin-label {
+  margin: 0 0 16px;
+  font-size: .74rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--encre-doux);
+}
+.fin-bloc.lumineuse .fin-label { color: var(--or); }
+.fin-bloc.sombre .fin-label { color: var(--pourpre); }
+.fin-bloc.ambigue .fin-label, .fin-bloc.douce .fin-label { color: var(--mer); }
+.choix.recommencer { justify-content: center; text-align: center; border-left-color: var(--bronze); }
+
+/* ————— divers ————— */
+
+.reprise {
+  position: fixed;
+  bottom: 18px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--papier);
+  border: 1px solid var(--trait);
+  border-left: 3px solid var(--bronze);
+  padding: 9px 16px;
+  font-size: .84rem;
+  box-shadow: 0 4px 14px var(--ombre);
+  animation: parait .4s ease both;
+  z-index: 9;
+}
+
+.aide {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--encre-doux);
+  font-style: italic;
+}
+
+#btn-panneau { display: none; }
+
+/* ————— petits écrans ————— */
+
+@media (max-width: 880px) {
+  .cadre { grid-template-columns: 1fr; padding: 16px 14px 48px; gap: 18px; }
+  .flanc {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(330px, 88vw);
+    padding: 18px;
+    overflow-y: auto;
+    background: var(--fond);
+    border-left: 1px solid var(--trait);
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    z-index: 10;
+  }
+  body.panneau-ouvert .flanc { transform: none; }
+  #btn-panneau { display: inline-block; }
+  #journal { max-height: none; }
+}
