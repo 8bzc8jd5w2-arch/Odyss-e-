@@ -1,0 +1,35 @@
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Activer et configurer Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Empaqueter le dépôt tel quel
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Déployer
+        id: deploiement
+        uses: actions/deploy-pages@v4

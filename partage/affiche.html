@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Affiche à imprimer — les deux jeux</title>
+<!-- Les adresses ne répondront qu'une fois GitHub Pages activé sur le dépôt
+     (Settings → Pages → branche main, dossier /). -->
+<style>
+/* Feuille destinée au papier et au vidéoprojecteur : fond blanc assumé,
+   pour que l'encre et le contraste soient prévisibles à l'impression. */
+@page { size: A4 portrait; margin: 14mm; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 34px 24px 44px;
+  background: #ffffff;
+  color: #1b1a16;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.feuille { max-width: 760px; margin: 0 auto; text-align: center; }
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 30px;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.sous { margin: 0 0 26px; color: #6b6558; font-style: italic; font-size: 15px; }
+
+.principal {
+  display: inline-block;
+  padding: 18px 18px 12px;
+  border: 1px solid #d8cfba;
+  border-radius: 4px;
+}
+.principal img { display: block; width: 240px; height: 240px; }
+.principal .url {
+  margin: 12px 0 0;
+  font-size: 13px;
+  letter-spacing: .01em;
+  word-break: break-all;
+  color: #4a463c;
+}
+
+.jeux {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid #ddd4c0;
+}
+
+.jeu img { display: block; width: 150px; height: 150px; margin: 0 auto 10px; }
+.jeu h2 { margin: 0; font-size: 18px; font-weight: 600; }
+.jeu .quoi { margin: 3px 0 8px; font-size: 13px; color: #6b6558; }
+.jeu .url { margin: 0; font-size: 11px; color: #7a7466; word-break: break-all; }
+
+.mode-emploi {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd4c0;
+  font-size: 13px;
+  color: #6b6558;
+  text-align: left;
+}
+.mode-emploi p { margin: 0 0 6px; }
+.mode-emploi b { color: #1b1a16; font-weight: 600; }
+
+@media (max-width: 560px) {
+  .jeux { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="feuille">
+
+  <h1>Deux jeux à jouer dans le navigateur</h1>
+  <p class="sous">Scannez avec l’appareil photo du téléphone. Rien à installer, aucun compte à créer.</p>
+
+  <div class="principal">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgMzcgMzciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGgzN3YzN0gweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIgMi41aDdtMSAwaDNtMSAwaDNtMyAwaDJtMSAwaDNtMiAwaDdNMiAzLjVoMW01IDBoMW0xIDBoMm0xIDBoMm00IDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0yIDBoMW01IDBoMU0yIDQuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTIgMGgxbTEgMGgzbTMgMGgybTMgMGgxbTEgMGgxbTEgMGgzbTEgMGgxTTIgNS41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDRtMSAwaDNtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDNtMSAwaDFNMiA2LjVoMW0xIDBoM20xIDBoMW0xIDBoMW0xIDBoMW0zIDBoM200IDBoMW0xIDBoMW0yIDBoMW0xIDBoM20xIDBoMU0yIDcuNWgxbTUgMGgxbTIgMGgxbTIgMGgxbTIgMGgybTYgMGgxbTIgMGgxbTUgMGgxTTIgOC41aDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdNMTAgOS41aDFtMSAwaDJtMSAwaDFtMyAwaDJtMSAwaDJtMSAwaDJNMyAxMC41aDJtMSAwaDFtMSAwaDJtMSAwaDNtMSAwaDJtMSAwaDJtMSAwaDFtMSAwaDFtNCAwaDFtMSAwaDVNMiAxMS41aDNtMiAwaDFtMSAwaDJtMSAwaDJtMSAwaDJtMSAwaDFtMyAwaDJtMyAwaDNtMyAwaDJNMiAxMi41aDFtMSAwaDVtMiAwaDFtMiAwaDFtMSAwaDJtMSAwaDFtMyAwaDJtMiAwaDFtMSAwaDFtMiAwaDNNNyAxMy41aDFtMiAwaDFtMSAwaDJtMiAwaDJtMyAwaDFtMSAwaDJtMiAwaDJtMSAwaDFtMyAwaDFNMiAxNC41aDFtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtMSAwaDFtMyAwaDFtMyAwaDJtMiAwaDNtMiAwaDFtMSAwaDJNNSAxNS41aDJtMiAwaDJtMSAwaDZtMyAwaDFtMSAwaDJtMSAwaDRtMSAwaDJtMSAwaDFNMiAxNi41aDFtMSAwaDNtMSAwaDFtMSAwaDRtMiAwaDNtOCAwaDFtMyAwaDRNMiAxNy41aDRtMSAwaDFtNCAwaDRtMSAwaDFtMSAwaDFtMiAwaDJtMiAwaDFtMSAwaDJtMyAwaDFNMiAxOC41aDFtMiAwaDFtMiAwaDZtNCAwaDFtMSAwaDdtMSAwaDFtMiAwaDFNMiAxOS41aDFtMSAwaDNtMiAwaDFtMiAwaDFtMyAwaDFtMiAwaDJtMSAwaDNtMSAwaDFtMSAwaDJtMyAwaDJNMiAyMC41aDFtMSAwaDFtMyAwaDRtMiAwaDJtMSAwaDJtNCAwaDJtMSAwaDFtNSAwaDNNMyAyMS41aDJtMSAwaDJtMSAwaDFtMiAwaDFtMiAwaDNtMiAwaDVtNCAwaDJtMiAwaDJNMyAyMi41aDFtMSAwaDJtMSAwaDFtMyAwaDFtMyAwaDNtMiAwaDhtMiAwaDFtMSAwaDFNNCAyMy41aDFtMSAwaDFtMiAwaDFtMiAwaDFtMSAwaDVtNCAwaDFtMSAwaDRtNCAwaDJNMiAyNC41aDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDNtMSAwaDFtMSAwaDNtOCAwaDJtMSAwaDNNMyAyNS41aDRtMiAwaDFtMSAwaDFtMSAwaDJtMyAwaDFtMiAwaDRtMSAwaDJtNiAwaDFNMiAyNi41aDFtMSAwaDVtMSAwaDFtMSAwaDJtNCAwaDFtMSAwaDRtMSAwaDZNMTAgMjcuNWg2bTEgMGg0bTMgMGgxbTEgMGgxbTMgMGgybTEgMGgyTTIgMjguNWg3bTEgMGgxbTEgMGgzbTEgMGgxbTMgMGgxbTEgMGgxbTIgMGgybTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxTTIgMjkuNWgxbTUgMGgxbTMgMGgxbTIgMGgybTEgMGgxbTQgMGgybTEgMGgxbTMgMGgxbTIgMGgxTTIgMzAuNWgxbTEgMGgzbTEgMGgxbTEgMGgybTMgMGgxbTEgMGgxbTEgMGgybTEgMGgybTIgMGg2TTIgMzEuNWgxbTEgMGgzbTEgMGgxbTIgMGgybTcgMGgxbTIgMGgxbTEgMGgybTMgMGg1TTIgMzIuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTIgMGgxbTIgMGgybTEgMGgxbTMgMGgxbTIgMGgxbTMgMGgxbTEgMGgxbTEgMGgxTTIgMzMuNWgxbTUgMGgxbTEgMGg0bTEgMGg0bTIgMGg2bTEgMGgxbTEgMGgxbTIgMGgxTTIgMzQuNWg3bTMgMGg0bTEgMGgybTQgMGgybTEgMGgybTIgMGgybTEgMGgyIi8+PC9zdmc+Cg==" alt="QR code vers la page qui présente les deux jeux">
+    <p class="url">8bzc8jd5w2-arch.github.io/Odyss-e-</p>
+  </div>
+
+  <div class="jeux">
+    <div class="jeu">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNDEgNDEiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGg0MXY0MUgweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIgMi41aDdtMiAwaDFtNiAwaDVtMSAwaDFtMSAwaDFtMSAwaDNtMSAwaDdNMiAzLjVoMW01IDBoMW0yIDBoM20xIDBoMW0xIDBoMW0yIDBoMW0yIDBoMW0zIDBoMm0xIDBoMW0xIDBoMW01IDBoMU0yIDQuNWgxbTEgMGgzbTEgMGgxbTEgMGgzbTEgMGgybTEgMGg1bTEgMGgxbTEgMGgxbTIgMGgxbTEgMGgxbTEgMGgxbTEgMGgzbTEgMGgxTTIgNS41aDFtMSAwaDNtMSAwaDFtMiAwaDFtMSAwaDJtMiAwaDFtMiAwaDNtMSAwaDJtMSAwaDRtMSAwaDFtMSAwaDNtMSAwaDFNMiA2LjVoMW0xIDBoM20xIDBoMW0xIDBoNW0yIDBoMW0xIDBoNG0xIDBoNG0xIDBoMW0yIDBoMW0xIDBoM20xIDBoMU0yIDcuNWgxbTUgMGgxbTEgMGgxbTEgMGg0bTEgMGgxbTIgMGgybTIgMGgxbTIgMGgybTEgMGgxbTEgMGgxbTUgMGgxTTIgOC41aDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdNMTEgOS41aDFtMSAwaDFtMSAwaDFtMSAwaDJtNCAwaDRtMSAwaDFNMyAxMC41aDFtMiAwaDFtMSAwaDFtMSAwaDFtMiAwaDJtNSAwaDFtMiAwaDJtMiAwaDNtMSAwaDFtMSAwaDJtMSAwaDFNMyAxMS41aDNtMSAwaDFtNCAwaDJtMiAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFtNCAwaDFtMSAwaDNNMyAxMi41aDJtMSAwaDFtMSAwaDltMyAwaDFtMSAwaDJtMSAwaDRtMSAwaDJtMSAwaDNtMSAwaDFNMyAxMy41aDFtMSAwaDFtMSAwaDFtMiAwaDZtMiAwaDRtMSAwaDFtMSAwaDFtMiAwaDFtMiAwaDFtMSAwaDJtMSAwaDNNMyAxNC41aDNtMiAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtMSAwaDFtMSAwaDJtMSAwaDZtMiAwaDFtMSAwaDFNMiAxNS41aDFtMyAwaDJtMSAwaDVtMSAwaDFtMSAwaDJtNCAwaDFtMSAwaDFtMyAwaDNtMSAwaDJtMSAwaDJNMiAxNi41aDNtMyAwaDJtMiAwaDJtMSAwaDFtMSAwaDFtMSAwaDRtMiAwaDFtMyAwaDJtMSAwaDZNMyAxNy41aDJtMSAwaDFtNiAwaDFtMSAwaDNtMyAwaDFtMiAwaDFtNCAwaDFtMyAwaDJtMSAwaDJNNCAxOC41aDFtMyAwaDNtMSAwaDJtMSAwaDFtMSAwaDNtMSAwaDJtMSAwaDNtMSAwaDFtMiAwaDNtMSAwaDRNMyAxOS41aDVtMyAwaDNtMSAwaDFtMyAwaDFtMiAwaDJtMyAwaDRtMiAwaDNNMiAyMC41aDFtMSAwaDNtMSAwaDJtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDVtMiAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFNMiAyMS41aDJtMSAwaDFtNCAwaDFtMSAwaDFtMSAwaDFtMyAwaDJtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMyAwaDFNMyAyMi41aDFtMyAwaDJtMSAwaDFtMyAwaDFtMSAwaDJtMSAwaDJtMiAwaDRtNCAwaDJtMiAwaDJtMSAwaDFNMiAyMy41aDVtNSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFtMyAwaDFtMSAwaDFtMyAwaDFtMiAwaDFtMSAwaDRNMyAyNC41aDFtMyAwaDJtMiAwaDFtMyAwaDNtMSAwaDFtMiAwaDltMSAwaDFtMiAwaDFNMiAyNS41aDRtMyAwaDJtMSAwaDFtNSAwaDFtMSAwaDhtMiAwaDRtMiAwaDFtMSAwaDFNMiAyNi41aDhtNCAwaDFtMSAwaDFtNiAwaDVtMSAwaDNtMSAwaDFtMiAwaDJNMiAyNy41aDFtNCAwaDFtMiAwaDFtNSAwaDFtMSAwaDNtMSAwaDRtMiAwaDFtMyAwaDNNNCAyOC41aDFtMSAwaDRtMSAwaDNtNCAwaDVtMiAwaDJtMiAwaDFtMSAwaDFtMiAwaDFtMSAwaDFNNCAyOS41aDRtMSAwaDJtMiAwaDFtMSAwaDNtMSAwaDFtMyAwaDFtMiAwaDFtMiAwaDJtMSAwaDNtMSAwaDFNMiAzMC41aDJtMyAwaDJtMSAwaDJtMiAwaDRtMyAwaDRtNSAwaDVtMSAwaDNNMTAgMzEuNWg0bTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgybTIgMGgxbTIgMGgxbTEgMGgxbTMgMGgyTTIgMzIuNWg3bTMgMGgxbTEgMGgzbTEgMGgybTMgMGgzbTEgMGgybTEgMGgxbTEgMGgxbTEgMGgzTTIgMzMuNWgxbTUgMGgxbTIgMGgxbTEgMGgxbTEgMGgxbTIgMGgxbTMgMGgybTYgMGgxbTMgMGgxbTEgMGgzTTIgMzQuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgybTEgMGg2bTcgMGg3TTIgMzUuNWgxbTEgMGgzbTEgMGgxbTMgMGgxbTIgMGgxbTEgMGgxbTMgMGgxbTIgMGgxbTEgMGg1bTEgMGgybTEgMGgxbTEgMGgxTTIgMzYuNWgxbTEgMGgzbTEgMGgxbTMgMGgzbTEgMGgzbTEgMGgybTIgMGg0bTQgMGgybTMgMGgxTTIgMzcuNWgxbTUgMGgxbTEgMGg0bTMgMGg3bTEgMGgxbTIgMGgxbTIgMGgxbTEgMGgxbTEgMGgzTTIgMzguNWg3bTMgMGgxbTIgMGgxbTEgMGgxbTEgMGgybTEgMGgzbTEgMGgxbTEgMGgybTEgMGgzbTEgMGg0Ii8+PC9zdmc+Cg==" alt="QR code vers le quiz Iqra’">
+      <h2>Iqra’</h2>
+      <p class="quoi">Quiz sur le Coran · 10 à 16 ans<br>125 questions, 3 niveaux</p>
+      <p class="url">…/Odyss-e-/coran/</p>
+    </div>
+    <div class="jeu">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNDEgNDEiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGg0MXY0MUgweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIgMi41aDdtMiAwaDNtMiAwaDNtMSAwaDFtMiAwaDJtMSAwaDJtMiAwaDFtMSAwaDdNMiAzLjVoMW01IDBoMW0xIDBoMW0yIDBoM20xIDBoMW0zIDBoM20xIDBoMm0xIDBoMW0xIDBoMW0xIDBoMW01IDBoMU0yIDQuNWgxbTEgMGgzbTEgMGgxbTEgMGgzbTEgMGgxbTMgMGgxbTEgMGgzbTQgMGg0bTEgMGgxbTEgMGgzbTEgMGgxTTIgNS41aDFtMSAwaDNtMSAwaDFtMiAwaDNtMiAwaDJtMiAwaDNtMyAwaDRtMiAwaDFtMSAwaDNtMSAwaDFNMiA2LjVoMW0xIDBoM20xIDBoMW0yIDBoMW0yIDBoMm04IDBoMW00IDBoMW0yIDBoMW0xIDBoM20xIDBoMU0yIDcuNWgxbTUgMGgxbTQgMGgxbTIgMGgybTMgMGgxbTQgMGgybTQgMGgxbTUgMGgxTTIgOC41aDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdNMTIgOS41aDNtMSAwaDNtMiAwaDFtMyAwaDJtMiAwaDJNMyAxMC41aDNtMSAwaDJtMyAwaDFtMiAwaDJtMSAwaDFtMyAwaDJtMiAwaDJtMSAwaDJtNSAwaDJNMyAxMS41aDFtMSAwaDFtMSAwaDFtMSAwaDVtMSAwaDFtMSAwaDFtMSAwaDFtMiAwaDFtMiAwaDFtMSAwaDRtMiAwaDFtMSAwaDJNNiAxMi41aDFtMSAwaDJtMiAwaDRtMSAwaDFtNiAwaDRtMSAwaDFtMSAwaDFtMSAwaDNtMSAwaDFNMiAxMy41aDJtNSAwaDRtMSAwaDVtOCAwaDNtNSAwaDJtMSAwaDFNMiAxNC41aDJtMyAwaDNtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMiAwaDFtMiAwaDNtMiAwaDNtMSAwaDFtMSAwaDFtMSAwaDFNNSAxNS41aDNtNSAwaDFtMyAwaDFtMSAwaDFtMyAwaDFtMiAwaDJtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFNMiAxNi41aDFtMiAwaDFtMiAwaDdtNCAwaDFtMSAwaDNtMyAwaDFtMiAwaDNtMSAwaDFtMSAwaDFNMiAxNy41aDVtMiAwaDFtMiAwaDdtMSAwaDJtMyAwaDJtMiAwaDZtMyAwaDFNMiAxOC41aDJtNCAwaDJtMiAwaDFtMSAwaDFtMyAwaDFtMiAwaDFtMiAwaDFtMiAwaDJtNiAwaDJNMyAxOS41aDFtMSAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDNtMSAwaDFtMSAwaDVtMSAwaDJtMSAwaDFtMiAwaDJtMSAwaDJtMSAwaDFNNCAyMC41aDdtNCAwaDJtNCAwaDFtMSAwaDFtMSAwaDNtMSAwaDFtMSAwaDFtMiAwaDFtMiAwaDJNMiAyMS41aDFtMSAwaDFtMSAwaDFtMiAwaDdtMSAwaDFtOCAwaDFtMiAwaDFtMiAwaDFtMSAwaDJtMiAwaDFNMiAyMi41aDFtMSAwaDJtMiAwaDRtMSAwaDJtMiAwaDJtMSAwaDJtMSAwaDFtMSAwaDFtMiAwaDFtMSAwaDJtMiAwaDJNMiAyMy41aDZtMSAwaDNtMyAwaDZtNCAwaDFtMSAwaDJtMyAwaDJtMiAwaDJNMiAyNC41aDFtMiAwaDVtMiAwaDJtMiAwaDJtMSAwaDFtMSAwaDFtMyAwaDNtNiAwaDFtMSAwaDFNMiAyNS41aDJtMyAwaDFtMyAwaDJtMiAwaDJtMiAwaDJtMyAwaDFtMSAwaDFtMiAwaDNtMyAwaDJNMiAyNi41aDFtMiAwaDRtMSAwaDJtMiAwaDFtMSAwaDJtNCAwaDFtMSAwaDNtMSAwaDFtMyAwaDFtMSAwaDVNMyAyNy41aDJtNCAwaDJtMiAwaDJtMSAwaDNtMiAwaDRtMSAwaDNtMiAwaDRtMiAwaDJNMyAyOC41aDRtMSAwaDFtMyAwaDFtNCAwaDRtMSAwaDJtMiAwaDJtNiAwaDJtMSAwaDFNMiAyOS41aDFtNCAwaDFtMSAwaDNtMiAwaDFtMSAwaDFtMSAwaDFtNCAwaDNtNCAwaDJtNSAwaDJNNSAzMC41aDdtMSAwaDNtMSAwaDJtMSAwaDFtMSAwaDZtMSAwaDhNMTAgMzEuNWgybTIgMGgzbTIgMGgxbTEgMGgxbTIgMGgzbTMgMGgxbTMgMGgzbTEgMGgxTTIgMzIuNWg3bTYgMGgzbTIgMGgxbTEgMGgybTIgMGgzbTEgMGgxbTEgMGgxbTEgMGgybTEgMGgyTTIgMzMuNWgxbTUgMGgxbTEgMGgxbTIgMGgxbTEgMGgybTEgMGgybTEgMGgxbTIgMGgxbTMgMGgzbTMgMGgybTEgMGgyTTIgMzQuNWgxbTEgMGgzbTEgMGgxbTIgMGgybTIgMGgybTMgMGgxbTMgMGgxbTEgMGgxbTEgMGgxbTEgMGg2bTIgMGgxTTIgMzUuNWgxbTEgMGgzbTEgMGgxbTEgMGg1bTEgMGgxbTMgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTMgMGgxbTEgMGgxbTEgMGgxbTIgMGgxTTIgMzYuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTQgMGgybTIgMGgxMm0xIDBoNk0yIDM3LjVoMW01IDBoMW0xIDBoMW0xIDBoMm0xIDBoMW0yIDBoM20xIDBoMW00IDBoM202IDBoMU0yIDM4LjVoN200IDBoM20zIDBoM20yIDBoMW0xIDBoMm0zIDBoMm0xIDBoMW0xIDBoMyIvPjwvc3ZnPgo=" alt="QR code vers le jeu L’Odyssée">
+      <h2>L’Odyssée</h2>
+      <p class="quoi">Aventure à choix · dès 12 ans<br>79 scènes, 9 fins</p>
+      <p class="url">…/Odyss-e-/odyssee/</p>
+    </div>
+  </div>
+
+  <div class="mode-emploi">
+    <p><b>Sur une tablette partagée :</b> la progression est enregistrée dans le navigateur, donc commune à tous ceux qui l’utilisent. Le bouton « Effacer mon parcours » remet le compteur à zéro entre deux joueurs.</p>
+    <p><b>Sans connexion :</b> les deux jeux existent aussi en fichier unique, à copier sur les postes. Ils s’ouvrent alors sans réseau.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
